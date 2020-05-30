@@ -70,7 +70,7 @@ So it can be somewhat frustrating having to copy these dependencies multiple tim
 ## Problem 2: Cannot make the developer environment directly from a `meta.yaml`
 The conda-build process will create the developer environment but it can be difficult to get it setup locally from this file.
 This may require your dev environment file to be declared in two different locations. <br>
-The `meta.yaml` and a `requirments.txt`, keeping those two files in sync is an unnecessary overhead..
+The `meta.yaml` and a `requirements.txt`, keeping those two files in sync is an unnecessary overhead..
 
 **There must be a better way**
 
@@ -92,9 +92,11 @@ Put simply we can define three separate files **once**:
 An example of this this can be found in the meta.yaml file for this page. <br>
 The Run section has:
 	* conda_run_requirements
+	
 The Build section has:
 	* conda_run_requirements
 	* conda_dev_requirements
+	
 The Test section has:
 	* conda_run_requirements
 	* conda_dev_requirements
