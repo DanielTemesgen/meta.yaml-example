@@ -3,7 +3,7 @@ A way of dealing with the joy of maintaining user and dev environments with cond
 
 ## Justification
 
-Packaging in Python can be difficult in in the best of times.
+Packaging in Python can be difficult at the best of times.
 There aren't fixed standards, conda goes a long way but falls down with respect to pip compatibility.
 
 ### Problem 1: No easy way to split Run and Dev environments
@@ -67,12 +67,12 @@ Often, the Build and Test sections will be identical.
 
 So it can be somewhat frustrating having to copy these dependencies multiple times.
 
-## Problem 2: Cannot make the developer environment directly from a `meta.yaml`
+## Problem 2: You cannot make the developer environment directly from a `meta.yaml`
 The conda-build process will create the developer environment but it can be difficult to get it setup locally from this file.
 This may require your dev environment file to be declared in two different locations. <br>
-The `meta.yaml` and a `requirements.txt`, keeping those two files in sync is an unnecessary overhead..
+The `meta.yaml` and a `requirements.txt`, keeping those two files in sync is an unnecessary overhead.
 
-**There must be a better way**
+**There must be a better way.**
 
 ## Possible Solution
 
@@ -102,12 +102,13 @@ The Test section has:
 	* conda_dev_requirements
 
 ### How to use this
-The `meta.yaml` file reads in the files on build time.
+The `meta.yaml` file reads in the files at build time.
 
-If a user wants to develop the package they need only to `conda install` the `conda_run_requirements.txt` and `conda_dev_requirements.txt`, then pip install `pip_dev_requirements.txt`.
+If a user wants to develop the package they need only to `conda install` the `conda_run_requirements.txt` and `conda_dev_requirements.txt`, then pip install `pip_dev_requirements.txt`. <br>
+Like so:
+```
+conda install -file envs/conda_run_requirements.txt -file envs/conda_dev_requirements.txt
+pip install envs/pip_dev_requirements.txt
+```
 
 Requirements are only defined once and can be used locally **and** on package build.
-
-
-
-
