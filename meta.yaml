@@ -4,6 +4,11 @@
     regex_pattern='.+',
     from_recipe_dir=True).string.strip().split("\n")
 %}
+{% set dev_requirements = load_file_regex(
+    load_file='envs/conda_dev_requirements.txt',
+    regex_pattern='.+',
+    from_recipe_dir=True).string.strip().split("\n")
+%}
 
 package:
   name: imagesize
