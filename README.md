@@ -10,12 +10,12 @@ There aren't fixed standards, conda goes a long way but falls down with respect 
 
 One consistent annoyance, is the lack of separation between the following two environments:
 1. The run environment
-  * what your users need to install to use your package.
-  * e.g. numPy, matplotlib
+	* what your users need to install to use your package.
+	* e.g. numPy, matplotlib
 1. The developer environment
-  * what the developers of the package need to install to develop the software.
-  * this will usually be a superset of the run environment, with extra packages for testing, documentation deployment etc.
-  * e.g. numpPy, matplotlib **and** pytest, sphinx etc.
+	* what the developers of the package need to install to develop the software.
+	* this will usually be a superset of the run environment, with extra packages for testing, documentation deployment etc.
+	* e.g. numpPy, matplotlib **and** pytest, sphinx etc.
   
 If you're packaging a project with conda then you'll most likely be using a `meta.yaml` file.
 Where you'll be declaring your dependencies in three separate sections:
@@ -82,22 +82,22 @@ I've extended this idea to take care of Problem 1 and 2 above.
 
 Put simply we can define three separate files **once**:
 1. conda_run_requirements.txt
-  * The conda packages needed to run your package.
+	* The conda packages needed to run your package.
 1. conda_dev_requirements.txt
-  * The **additional** conda packages needed to develop your project.
+	* The **additional** conda packages needed to develop your project.
 1. pip_dev_requirements.txt
-  * The **additional** pip-only packages that are required to develop your project.
-  * Whilst these cannot be used in conjunction with the `meta.yaml` file users can use this to get the full dev requirements if they want to install packages for another part of their CI which can use pip e.g. documentation build.
+	* The **additional** pip-only packages that are required to develop your project.
+	* Whilst these cannot be used in conjunction with the `meta.yaml` file users can use this to get the full dev requirements if they want to install packages for another part of their CI which can use pip e.g. documentation build.
   
 An example of this this can be found in the meta.yaml file for this page. <br>
 The Run section has:
-* conda_run_requirements
+	* conda_run_requirements
 The Build section has:
-* conda_run_requirements
-* conda_dev_requirements
+	* conda_run_requirements
+	* conda_dev_requirements
 The Test section has:
-* conda_run_requirements
-* conda_dev_requirements
+	* conda_run_requirements
+	* conda_dev_requirements
 
 ### How to use this
 The `meta.yaml` file reads in the files on build time.
