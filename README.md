@@ -107,7 +107,7 @@ The `meta.yaml` file reads in the files at build time.
 If a user wants to develop the package they need only to `conda install` the `conda_run_requirements.txt` and `conda_dev_requirements.txt`, then pip install `pip_dev_requirements.txt`. <br>
 Like so:
 ```
-conda install -file envs/conda_run_requirements.txt -file envs/conda_dev_requirements.txt
+conda install --file envs/conda_run_requirements.txt --file envs/conda_dev_requirements.txt
 pip install envs/pip_dev_requirements.txt
 ```
 
