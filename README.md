@@ -90,16 +90,17 @@ Put simply we can define three separate files **once**:
 	* Whilst these cannot be used in conjunction with the `meta.yaml` file users can use this to get the full dev requirements if they want to install packages for another part of their CI which can use pip e.g. documentation build.
   
 An example of this this can be found in the meta.yaml file for this page. <br>
+
 The Run section has:
-	* conda_run_requirements
-	
+* conda_run_requirements
+
 The Build section has:
-	* conda_run_requirements
-	* conda_dev_requirements
+* conda_run_requirements
+* conda_dev_requirements
 	
-The Test section has:
-	* conda_run_requirements
-	* conda_dev_requirements
+The Test section has:	
+* conda_run_requirements
+* conda_dev_requirements
 
 ### How to use this
 The `meta.yaml` file reads in the files at build time.
